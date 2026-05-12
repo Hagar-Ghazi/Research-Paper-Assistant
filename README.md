@@ -1,6 +1,6 @@
 # 📄 Research Paper Assistant
 
-> A fully local RAG (Retrieval-Augmented Generation) pipeline that fetches arXiv papers, indexes them with hybrid search, and lets you ask questions or generate structured summaries — all running on your own machine with no cloud API keys required.
+> A fully local AI-powered research assistant built with RAG and Streamlit designed to fetch arXiv papers perform hybrid semantic and keyword-based retrieval and generate intelligent answers or structured research summaries all running entirely on your local machine without relying on cloud APIs or external services
 
 ---
 
