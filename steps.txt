@@ -1,0 +1,20 @@
+1- Create an isolated python environment for the project
+--------------------------------------------------------------------------------------  
+2- Install all libraries 
+    streamlit —> the chat UI / web interface
+    pymupdf   —> PDF text extraction imported as fitz
+    faiss-cpu —> vector similarity search the semantic half of hybrid retrieval
+    rank-bm25 —? keyword search the BM25 half of hybrid retrieval
+    sentence-transformers —> embedding model converts text to vectors locally
+--------------------------------------------------------------------------------------    
+3- folder structure
+    paper-rag/
+    ├── config.py           --> all settings in one place — topics, model names, chunk size, paths
+    ├── fetcher.py          --> calls arXiv API → returns list of new paper dicts
+    ├── parser.py           --> downloads PDF → extracts text → splits into chunks
+    ├── embedder.py         --> embeds chunks with nomic-embed-text → builds FAISS + BM25 indexes
+    ├── ingest.py           --> orchestrator — runs fetcher → parser → embedder → saves to cache/
+    ├── rag_engine.py       --> Router + HybridRetriever (FAISS+BM25+RRF) + Generator — adapted from your NileTel engine
+    └── app.pystep          --> Streamlit UI — chat window, sidebar, paper cards, mode badge
+
+--------------------------------------------------------------------------------------  
